@@ -13,7 +13,7 @@ The goals of content addressing in general:
 
 - Universally agreeable identifiers across remote systems and even offline
 - "Unbreakable" references to documents
-- Recursive references form a [Merkle tree](TODO), meaning the entire document set is fully specified by the address of a single root document
+- Recursive references form a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree), meaning the entire document set is fully specified by the address of a single root document
 - Cryptographically secure addresses that cannot be redirected or forged
 
 Hashes are _universally agreeable_, meaning that "good collisions" will happen naturally, when the referenced content is the same. UUIDs are, as the name says, universally unique, which means that the same document might be assigned multiple different names, especially in a decentralized network or when working offline.
@@ -35,12 +35,12 @@ Why name the scheme `hash:`? The most obvious alternative is `content:`, however
 
 Content addresses are somewhat unique in that they inherently support many resolvers and resolution methods. Thus it makes sense that the content address format should not be tied to any particular resolver or brand name. **"Hash" is a neutral term that doesn't favor any one project.**
 
-Using the algorithm names themselves as schemes [has been proposed](TODO), but it does not make much sense for applications to only register a single algorithm at a time. Having a large number of separate schemes could make it difficult for users to assign a single application to resolve all content addresses. Thus having an umbrella scheme is useful.
+Using the algorithm names themselves as schemes [has been proposed](https://joearms.github.io/2015/03/12/The_web_of_names.html), but it does not make much sense for applications to only register a single algorithm at a time. Having a large number of separate schemes could make it difficult for users to assign a single application to resolve all content addresses. Thus having an umbrella scheme is useful.
 
 Syntax
 ------
 
-The hash URI scheme follows [RFC 3986](TODO).
+The hash URI scheme follows [RFC 3986](https://tools.ietf.org/html/rfc3986).
 
 ```
  hash://sha256/9f86d081884c7d659a2feaa0?type=text/plain#top
@@ -65,11 +65,11 @@ Appendix: Alternate content addressing schemes
 The hash URI scheme is intended to address perceived flaws in other content address formats.
 
 **URNs**  
-- No content hash URN type was ever [registered](TODO).
+- No content hash URN type was ever [registered](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml).
 - All standard URN types (such as `urn:isbn:`) are not content hashes and cannot be feasibly supported by a purely content addressing system.
 - Popular applications like BitTorrent use their own proprietary URN types (e.g. `urn:btih:`).
 - Most hash URNs are "salted" with application-specific meta-data, making them unusable by other applications.
-- The new URN definition procedure is particularly onerous, [requiring](TODO) new algorithms to use numbered identifiers until formally registered.
+- The URN definition procedure is particularly onerous, [requiring](https://tools.ietf.org/html/rfc3406#section-4.2) new algorithms to use numbered identifiers until formally registered.
 - Most systems using URN addresses wrap them in magnet links, adding another layer of complexity.
 
 **Magnet links**  
@@ -98,5 +98,5 @@ Compatible Applications
 Implementations
 ---------------
 
-- [node-hash-uri](https://github.com/btrask/hash-uri/tree/master/node-hash-uri) (Node.js, MIT licensed)
+- [node-hash-uri](https://github.com/hash-uri/hash-uri/tree/master/node-hash-uri) (Node.js, MIT licensed)
 
