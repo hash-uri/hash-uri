@@ -3,7 +3,13 @@ node-hash-uri
 
 node-hash-uri is a Node.js and io.js module to produce and parse URIs with the `hash:` scheme. Hash URIs are useful for identifying resources by their content (content addressing). For more information about hash URIs in general, please see the specification [here](https://github.com/hash-uri/hash-uri).
 
-**Usage:**
+**Installation**
+
+```
+$ npm install hash-uri
+```
+
+**Usage**
 
 ```
 var hashuri = require("hash-uri");
