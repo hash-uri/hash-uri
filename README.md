@@ -64,6 +64,8 @@ Appendix: Alternate content addressing schemes
 
 The hash URI scheme is intended to address perceived flaws in other content address formats.
 
+Because content addresses can be resolved in many ways, applications are encouraged to support as many address formats as possible (when they aren't "salted" or overly application-specific).
+
 **[URNs](https://tools.ietf.org/html/rfc2141)**  
 - No content hash URN type was ever [registered](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml).
 - All standard URN types (such as `urn:isbn:`) are not content hashes and cannot be feasibly supported by a purely content addressing system.
@@ -88,8 +90,6 @@ Bare hashes require an externally imposed algorithm choice, which impinges hash 
 
 **[Algorithm-prefixed hashes](https://www.w3.org/TR/SRI/#the-integrity-attribute)**  
 Simple algorithm prefixes (like "sha256-") do not form valid URLs.
-
-Because content addresses can be resolved in many ways, applications are encouraged to support as many address formats as possible (when they aren't "salted" or overly application-specific).
 
 Compatible Applications
 -----------------------
