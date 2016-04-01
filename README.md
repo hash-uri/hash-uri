@@ -1,7 +1,7 @@
 Hash URI Specification (Initial Draft)
 ======================================
 
-Last updated 2016-03-31
+Last updated 2016-03-31  
 Ben Trask
 
 This document supercedes the informal description of hash URIs [here](https://bentrask.com/?q=hash://sha256/98493caa8b37eaa26343bbf73f232597a3ccda20498563327a4c3713821df892).
