@@ -13,7 +13,7 @@ The goals of content addressing in general:
 
 - Universally agreeable identifiers across remote systems and even offline
 - "Unbreakable" references to documents
-- Recursive references form a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree), meaning the entire document set is fully specified by the address of a single root document
+- Recursive references form a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree), meaning a complex document with multiple included resources is fully specified by its root address
 - Cryptographically secure addresses that cannot be redirected or forged
 
 Hashes are _universally agreeable_, meaning that "good collisions" will happen naturally, when the referenced content is the same. UUIDs are, as the name says, universally unique, which means that the same document might be assigned multiple different names, especially in a decentralized network or when working offline.
