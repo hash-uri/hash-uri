@@ -94,11 +94,12 @@ Because content addresses can be resolved in many ways, applications are encoura
 Compatible Applications
 -----------------------
 
-- [StrongLink](https://github.com/btrask/stronglink)
+- [StrongLink](https://github.com/btrask/stronglink): Content-addressable database and searchable, syncable notetaking system
+- [hash-uri](https://github.com/hash-uri/hash-uri/tree/master/cli): Compute and verify hash URIs from the command line
 - To be continued...
 
-Implementations
----------------
+Libraries
+---------
 
 - [node-hash-uri](https://github.com/hash-uri/hash-uri/tree/master/node-hash-uri) (Node.js, MIT licensed)
 

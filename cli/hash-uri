@@ -1,0 +1,40 @@
+#!/usr/bin/python
+# Copyright 2016 Ben Trask
+# MIT licensed (see LICENSE for details)
+
+import argparse
+import hashlib
+
+parser = argparse.ArgumentParser(description="Compute and verify hash URIs")
+parser.add_argument(dest="file", type=argparse.FileType("rb"))
+parser.add_argument("-v")
+args = parser.parse_args()
+
+algos = ["sha256", "sha512", "sha1", "md5"]
+
+def parse_uri(uri):
+	exp = re.compile(r"^hash:\/\/([\w\d.-]+)\/([\w\d.%_-]+)(\?[\w\d.%_=&-]+)?(#[\w\d.%_-]+)?$", re.IGNORECASE)
+	match = exp.match(uri)
+	if not match: return None
+	return dict(
+		algo=match.group(1),
+		hash=match.group(2),
+		query=match.group(3),
+		fragment=match.group(4)
+	)
+
+def compute(file):
+	hashers = [hashlib.new(algo) for algo in algos]
+	while 1:
+		buf = args.file.read()
+		if not buf: break
+		for hasher in hashers: hasher.update(buf)
+
+	for hasher in hashers:
+		print("hash://"+hasher.name+"/"+hasher.hexdigest())
+
+def verify(file, uri):
+	print("TODO")
+
+compute(args.file)
+
