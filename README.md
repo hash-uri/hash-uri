@@ -64,7 +64,7 @@ Appendix: Alternate content addressing schemes
 
 The hash URI scheme is intended to address perceived flaws in other content address formats.
 
-**URNs**  
+**[URNs](https://tools.ietf.org/html/rfc2141)**  
 - No content hash URN type was ever [registered](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml).
 - All standard URN types (such as `urn:isbn:`) are not content hashes and cannot be feasibly supported by a purely content addressing system.
 - Popular applications like BitTorrent use their own proprietary URN types (e.g. `urn:btih:`).
@@ -72,19 +72,21 @@ The hash URI scheme is intended to address perceived flaws in other content addr
 - The URN definition procedure is particularly onerous, [requiring](https://tools.ietf.org/html/rfc3406#section-4.2) new algorithms to use numbered identifiers until formally registered.
 - Most systems using URN addresses wrap them in magnet links, adding another layer of complexity.
 
-**Magnet links**  
+**[Magnet links](https://en.wikipedia.org/wiki/Magnet_URI_scheme)**  
 Magnet links typically wrap URNs, and thus have all of the same downsides, plus additional complexity. The flexibility of magnet links may be useful for some applications, and hash URIs can be used in magnet links if desired.
 
-**IPFS paths**  
-IPFS paths are paths, not URLs, which makes it harder to use them with other applications such as text editors that automatically recognize URLs but not paths. URIs also support more features like query parameters and fragments, and have more consistent encoding for non-standard characters than paths. The MultiHash encoding is not as human-friendly, although it's shorter than spelling out the algorithm name. Adding new algorithms requires strictly coordinated assignment of identifiers to prevent collisions, whereas algorithm names are less likely to collide and are more amenable to "rough consensus."
+**[IPFS paths](https://github.com/ipfs/specs)**  
+IPFS uses paths, not URLs, which makes it harder to use them with other applications such as text editors that automatically recognize URLs (but not paths). URIs also support more features like query parameters and fragments, and have more consistent encoding for non-standard characters than paths. The MultiHash encoding is not as human-friendly, although it's shorter than spelling out the algorithm name. Adding new algorithms requires strictly coordinated assignment of identifiers to prevent collisions, whereas algorithm names are less likely to collide and are more amenable to "rough consensus." See discussion on IPFS path/URI syntax [here](https://github.com/ipfs/go-ipfs/issues/1678).
 
-**RFC 6920 (`ni:`)**  
+These would all be minor concerns, if IPFS used standard hashes that other applications could easily generate and verify. See [this issue](https://github.com/ipfs/go-ipfs/issues/1953).
+
+**[RFC 6920](https://tools.ietf.org/html/rfc6920) (`ni:`)**  
 Uses uncommon URI syntax that could break many parsers (`;` path arguments). The "ni" (Named Info) term is less meaningful and overlaps with URNs (Uniform Resource Names), which could potentially lead to use for non-content addresses.
 
 **Bare hashes**  
 Bare hashes require an externally imposed algorithm choice, which impinges hash agility.
 
-**Algorithm-prefixed hashes**  
+**[Algorithm-prefixed hashes](https://www.w3.org/TR/SRI/#the-integrity-attribute)**  
 Simple algorithm prefixes (like "sha256-") do not form valid URLs.
 
 Because content addresses can be resolved in many ways, applications are encouraged to support as many address formats as possible (when they aren't "salted" or overly application-specific).
