@@ -10,7 +10,8 @@ function has(obj, prop) {
 // returns: { algo: string, hash: string, query: string, fragment: string, data: buffer, encoding: string }
 hashuri.parse = function(uri) {
 	if("string" !== typeof uri) throw new TypeError("Invalid URI");
-	var x = /^hash:\/\/([\w\d.-]+)\/([\w\d.%=+_-]+)(?:\?([\w\d.%+\/*=&_-]+))?(#[\w\d.%_-]+)?$/i.exec(uri);
+	// TODO: Support for other encodings...
+	var x = /^hash:\/\/([\w\d.-]+)\/([0-9a-fA-F]+)(?:\?([\w\d.%+\/*=&_-]+))?(#[\w\d.%_-]+)?$/i.exec(uri);
 	if(!x) return null;
 	var algo = x[1];
 	var hash = x[2];
