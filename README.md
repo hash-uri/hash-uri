@@ -104,4 +104,4 @@ Libraries
 ---------
 
 - [node-hash-uri](https://github.com/hash-uri/hash-uri/tree/master/node-hash-uri) (Node.js, MIT licensed)
-
+- [go-hashuri](https://github.com/reiver/go-hashuri) (Golang, MIT licensed)
