@@ -98,6 +98,7 @@ Compatible Applications
 - [StrongLink](https://github.com/btrask/stronglink): Content-addressable database and searchable, syncable notetaking system
 - [hash-uri](https://github.com/hash-uri/hash-uri/tree/master/cli): Compute and verify hash URIs from the command line
 - [content-addressing-demo](https://github.com/btrask/content-addressing-demo): Demo storage system in Python, using flat file storage
+- [Preston](https://github.com/bio-guoda/preston): An open source system for tracking biodiversity datasets
 - To be continued...
 
 Libraries
